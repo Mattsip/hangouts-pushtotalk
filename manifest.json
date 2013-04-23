@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Google+ Hangouts - Push To Talk",
+  "description": "Chrome extension enabling PTT functionality for Google+ Hangouts",
+  "version": "1.0",
+  "options_page": "options.html",
+
+  "page_action": {
+    "default_title": "Google+ Hangouts - Push To Talk"           
+    },
+
+    "background": {
+      "scripts": ["bg.js"],
+      "persistent": false
+      },
+
+      "content_scripts": [
+      {
+        "matches": ["https://plus.google.com/hangouts/*"],
+        "js": ["jquery.js", "ptt.js"]
+      }
+      ]
+    }
+
