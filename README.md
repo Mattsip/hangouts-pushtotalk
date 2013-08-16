@@ -13,4 +13,5 @@ Install instructions
 Issues/todo
 ---
 
-- Limits of keyCode (same code for certain keys).
+- Convert unicode output to correct key character
+- ISSUE: Limited possible keys using keyCode

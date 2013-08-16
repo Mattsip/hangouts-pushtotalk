@@ -1,5 +1,7 @@
+ enterkey = document.getElementById("enterkey");
+
 function save_options() {
-  var key = $('#enterkey').val();
+  var key = pressedkey;
   localStorage["ptt_key"] = key;
   $('#status').html("Key saved.");
 }
@@ -9,12 +11,14 @@ function restore_options() {
   if (!savedkey) {
     return;
   }
-  $('#enterkey').val(savedkey);
+  $(enterkey).val(savedkey);
 }
 
-$("#enterkey").keyup(function(e) {
-  $(this).val(e.which);
-});
+enterkey.addEventListener("keydown",function(e){
+  pressedkey = e.keyCode;
+  $(enterkey).val(e.keyIdentifier);
+  e.preventDefault(); //Stop char entry showing
+}, false);
 
 $('#save').on("click", function(){
   save_options();
